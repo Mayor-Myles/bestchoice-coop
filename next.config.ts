@@ -1,19 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-
-async rewrites() {
+  async rewrites() {
     return [
       {
-        // The "Mask" you use in React
-        source: '/api/backend/:path*', 
-        // The "Final Destination" where the data lives
+        source: '/api/backend/:path*',
         destination: 'http://mylezic.myartsonline.com/:path*',
       },
-    ]
+    ];
   },
-  
 };
 
 export default nextConfig;

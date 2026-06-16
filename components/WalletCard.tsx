@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import {
   Box,
   HStack,
@@ -8,7 +9,7 @@ import {
   Text,
   Button,
   Icon,
-  useModal,
+  useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -18,7 +19,6 @@ import {
   ModalFooter,
   Input,
   useToast,
-  useState as useReactState,
 } from '@chakra-ui/react'
 import { FaPlus, FaWallet } from 'react-icons/fa'
 
@@ -29,8 +29,8 @@ interface WalletCardProps {
 }
 
 export default function WalletCard({ walletNumber, bankName, balance }: WalletCardProps) {
-  const { isOpen, onOpen, onClose } = useModal()
-  const [amount, setAmount] = useReactState('')
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [amount, setAmount] = useState('')
   const toast = useToast()
 
   const handleAddFunds = () => {
